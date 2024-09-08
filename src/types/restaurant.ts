@@ -1,6 +1,7 @@
 export type RestaurantOptions = {
   restaurant: {
     name: string
+    image: string
     badge_text?: string
     ratings: {
       average_rating: number

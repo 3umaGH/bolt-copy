@@ -2,69 +2,10 @@ import { FiMapPin } from 'react-icons/fi'
 import { Category } from './components/common/Category'
 import { RestaurantCard } from './components/common/RestaurantCard/RestaurantCard'
 import { Searchbar } from './components/pages/MainPage/Searchbar'
+import { FEATURED_RESTAURANT, MOCK_RESTAURANTS } from './mockData'
+import { HorizontalContainer } from './components/pages/MainPage/HorizontalContainer'
 
-export const MockList = () => {
-  return (
-    <div className='hide-scrollbar flex gap-4 overflow-auto w-screen px-4'>
-      <RestaurantCard
-        img='https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg'
-        size='sm'
-        options={{
-          restaurant: {
-            name: 'Bolt Market Soola',
-            //badge_text: '16% off, up to 3 Eur',
-            ratings: {
-              average_rating: 4.6,
-              total_ratings: 500,
-            },
-          },
-          delivery: {
-            time_range: [20, 60],
-            price: { price: 12.7, discounted_price: 11.5 },
-          },
-        }}
-      />
-
-      <RestaurantCard
-        img='https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg'
-        size='sm'
-        options={{
-          restaurant: {
-            name: 'Bolt Market Soola',
-            //badge_text: '16% off, up to 3 Eur',
-            ratings: {
-              average_rating: 4.6,
-              total_ratings: 500,
-            },
-          },
-          delivery: {
-            time_range: [20, 60],
-            price: { price: 2.7, discounted_price: 1.5 },
-          },
-        }}
-      />
-
-      <RestaurantCard
-        img='https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg'
-        size='sm'
-        options={{
-          restaurant: {
-            name: 'Bolt Market Soola',
-            //badge_text: '16% off, up to 3 Eur',
-            ratings: {
-              average_rating: 4.6,
-              total_ratings: 500,
-            },
-          },
-          delivery: {
-            time_range: [20, 60],
-            price: { price: 2.7, discounted_price: 1.5 },
-          },
-        }}
-      />
-    </div>
-  )
-}
+const randomSort = () => Math.random() - 0.5
 
 function App() {
   return (
@@ -80,39 +21,42 @@ function App() {
 
       <Category value='🥕 Groceries by Bolt' />
 
-      <RestaurantCard
-        img='https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg'
-        size='lg'
-        options={{
-          restaurant: {
-            name: 'Bolt Market Soola',
-            //badge_text: '16% off, up to 3 Eur',
-            ratings: {
-              average_rating: 4.6,
-              total_ratings: 500,
-            },
-          },
-          delivery: {
-            time_range: [20, 60],
-            price: { price: 2.7, discounted_price: 1.5 },
-          },
-        }}
-      />
+      <RestaurantCard size='lg' options={FEATURED_RESTAURANT} />
 
       <Category value='😋 Must Try' />
-      <MockList />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
 
       <Category value='Your local favorites ✨' />
-      <MockList />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
 
       <Category value='🍔 Burgers' />
-      <MockList />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
 
       <Category value='🍱 Asian' />
-      <MockList />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
 
       <Category value='🍕 Pizza' />
-      <MockList />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
     </div>
   )
 }

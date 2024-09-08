@@ -7,13 +7,12 @@ import { RatingBadge } from './RatingBadge'
 import { OfferBadge } from './OfferBadge'
 
 type RestaurantCard = {
-  img: string
   size: 'sm' | 'lg'
 
   options: RestaurantOptions
 } & CommonProps
 
-export const RestaurantCard = ({ className, img, size, options }: RestaurantCard) => {
+export const RestaurantCard = ({ className, size, options }: RestaurantCard) => {
   const iconClass = clsx('h-auto', { 'w-5': size === 'lg', 'w-4': size === 'sm' })
 
   return (
@@ -36,7 +35,7 @@ export const RestaurantCard = ({ className, img, size, options }: RestaurantCard
           </div>
         </div>
 
-        <img className='w-full rounded-md overflow-hidden' src={img} />
+        <img className='w-full rounded-md overflow-hidden' src={options.restaurant.image} />
       </div>
       <div className='mt-2'>
         <p className='font-bold tracking-wide'>{options.restaurant.name}</p>
