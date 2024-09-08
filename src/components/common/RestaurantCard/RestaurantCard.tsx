@@ -18,7 +18,7 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
   return (
     <div className={clsx('leading-5', className)}>
       <div
-        className={clsx('relative overflow-hidden min-w-[225px]', {
+        className={clsx('relative overflow-hidden min-w-[225px] lg:min-w-[425px] xl:min-w-[625px]', {
           'max-w-[600px]': size === 'sm',
           'max-w-[800px]': size === 'lg',
         })}>
