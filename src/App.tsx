@@ -6,6 +6,7 @@ import { FEATURED_RESTAURANT, MOCK_OFFERS_SLIDES, MOCK_RESTAURANTS } from './moc
 import { HorizontalContainer } from './components/pages/MainPage/HorizontalContainer'
 import { HorizontalSlider } from './components/pages/MainPage/HorizontalSlider'
 import { RestaurantGrid } from './components/common/RestaurantCard/RestaurantGrid'
+import { VerticalContainer } from './components/pages/MainPage/VerticalContainer'
 
 const randomSort = () => Math.random() - 0.5
 
@@ -70,6 +71,13 @@ function App() {
           <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
         ))}
       </HorizontalContainer>
+
+      <Category value='All restaurants and stores' />
+      <VerticalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </VerticalContainer>
     </div>
   )
 }
