@@ -273,7 +273,9 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
 ]
 
 export const MOCK_OFFERS_SLIDES: Slide[] = [
-  { id: 0, img: 'https://miro.medium.com/v2/resize:fit:800/0*uuovY4pBr7cyXsgS.png', href: '' },
-  { id: 1, img: 'https://il-letterato.ru/upload/medialibrary/e8e/e8e8354be08fa37541038ce92bd0003f.jpg', href: '' },
-  { id: 2, img: 'https://www.liguriaristorante.co.za/wp-content/uploads/2023/05/medium-images-2.png', href: '' },
+  { id: 0, img: '/promo/1.webp', href: '' },
+  { id: 1, img: '/promo/2.webp', href: '' },
+  { id: 2, img: '/promo/3.webp', href: '' },
+  { id: 3, img: '/promo/4.webp', href: '' },
+  { id: 4, img: '/promo/5.webp', href: '' },
 ]
