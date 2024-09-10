@@ -15,9 +15,9 @@ type HorizontalSlider = {
 }
 
 export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSlider) => {
-  const slideClassName = clsx('w-[90svw] h-full rounded-md snap-center', {
-    'max-h-[110px] lg:max-h-[200px]': slideSize === 'sm',
-    'max-h-[300px]': slideSize === 'lg',
+  const slideClassName = clsx('h-full rounded-md snap-center', {
+    'min-w-[200px] lg:min-w-[400px]': slideSize === 'sm',
+    'min-w-[300px] lg:min-w-[500px]': slideSize === 'lg',
   })
 
   const baseImages = [data[data.length - 1], ...data, ...data, data[0]]
@@ -96,8 +96,8 @@ export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSl
       onClick={handleTouchStart}
       className='flex w-screen gap-4 px-4 mt-2 overflow-auto snap-mandatory snap-x hide-scrollbar'>
       {slides.map((slide, index) => (
-        <Link to={slide.href} key={`${slide.id}_${index}`}>
-          <img ref={index === 0 ? firstSlideRef : null} src={slide.img} className={slideClassName} />
+        <Link to={slide.href} key={`${slide.id}_${index}`} className={slideClassName}>
+          <img ref={index === 0 ? firstSlideRef : null} src={slide.img} className='w-full h-full' />
         </Link>
       ))}
     </div>
