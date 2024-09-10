@@ -10,9 +10,10 @@ export type Slide = {
 
 type HorizontalSlider = {
   data: Slide[]
+  autoScrollMs?: number
 }
 
-export const HorizontalSlider = ({ data }: HorizontalSlider) => {
+export const HorizontalSlider = ({ data, autoScrollMs }: HorizontalSlider) => {
   const baseImages = [data[data.length - 1], ...data, ...data, data[0]]
   const slides = [...baseImages]
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -37,14 +38,16 @@ export const HorizontalSlider = ({ data }: HorizontalSlider) => {
       handleScrollNext()
     }, 200)
 
-    const scrollInterval = setInterval(() => {
-      handleScrollNext()
-    }, 2000)
+    if (autoScrollMs) {
+      const scrollInterval = setInterval(() => {
+        handleScrollNext()
+      }, autoScrollMs)
 
-    return () => {
-      clearInterval(scrollInterval)
+      return () => {
+        clearInterval(scrollInterval)
+      }
     }
-  }, [sliderRef])
+  }, [autoScrollMs, sliderRef])
 
   const handleScroll = () => {
     if (!sliderRef.current) return
