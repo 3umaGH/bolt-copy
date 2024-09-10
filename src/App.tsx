@@ -5,6 +5,7 @@ import { Searchbar } from './components/pages/MainPage/Searchbar'
 import { FEATURED_RESTAURANT, MOCK_OFFERS_SLIDES, MOCK_RESTAURANTS } from './mockData'
 import { HorizontalContainer } from './components/pages/MainPage/HorizontalContainer'
 import { HorizontalSlider } from './components/pages/MainPage/HorizontalSlider'
+import { RestaurantGrid } from './components/common/RestaurantCard/RestaurantGrid'
 
 const randomSort = () => Math.random() - 0.5
 
@@ -48,6 +49,13 @@ function App() {
       </HorizontalContainer>
 
       <HorizontalSlider data={MOCK_OFFERS_SLIDES} autoScrollMs={8000} slideSize='sm' />
+
+      <Category value='👜 Stores' />
+      <HorizontalContainer>
+        {MOCK_RESTAURANTS.sort(randomSort).map(restaurant => (
+          <RestaurantGrid key={restaurant.restaurant.name} size='sm' options={restaurant} />
+        ))}
+      </HorizontalContainer>
 
       <Category value='🍱 Asian' />
       <HorizontalContainer>
