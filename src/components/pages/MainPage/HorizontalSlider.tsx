@@ -13,9 +13,11 @@ type HorizontalSlider = {
 }
 
 export const HorizontalSlider = ({ data }: HorizontalSlider) => {
-  const baseImages = [data[data.length - 1], ...data, data[0]]
-  const slides = [...baseImages, ...baseImages]
+  const baseImages = [data[data.length - 1], ...data, ...data, data[0]]
+  const slides = [...baseImages]
   const sliderRef = useRef<HTMLDivElement>(null)
+
+  console.log(slides)
 
   const handleScrollNext = () => {
     if (!sliderRef.current) {
