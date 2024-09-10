@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 export type Slide = {
   id: number
@@ -23,6 +23,7 @@ export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSl
   const slides = [...baseImages]
   const sliderRef = useRef<HTMLDivElement>(null)
   const firstSlideRef = useRef<HTMLImageElement>(null) // Used to retreive slide width to scroll it correctly.
+  const [userScrolled, setUserScrolled] = useState(false)
 
   const handleScrollNext = () => {
     if (!sliderRef.current || !firstSlideRef.current) {
@@ -37,22 +38,27 @@ export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSl
       behavior: 'smooth',
     })
   }
-
   useLayoutEffect(() => {
     setTimeout(() => {
       handleScrollNext()
     }, 200)
+  }, [])
 
+  useEffect(() => {
     if (autoScrollMs) {
       const scrollInterval = setInterval(() => {
-        handleScrollNext()
+        if (userScrolled) {
+          setUserScrolled(false)
+        } else {
+          handleScrollNext()
+        }
       }, autoScrollMs)
 
       return () => {
         clearInterval(scrollInterval)
       }
     }
-  }, [autoScrollMs, sliderRef])
+  }, [autoScrollMs, sliderRef, userScrolled])
 
   const handleScroll = () => {
     if (!sliderRef.current) return
@@ -76,10 +82,17 @@ export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSl
     }
   }
 
+  // If user touches/clicks the component, we pause the autoscroll
+  const handleTouchStart = () => {
+    setUserScrolled(true)
+  }
+
   return (
     <div
       ref={sliderRef}
       onScroll={handleScroll}
+      onTouchStart={handleTouchStart}
+      onClick={handleTouchStart}
       className='flex w-screen gap-4 px-4 mt-2 overflow-auto snap-mandatory snap-x hide-scrollbar'>
       {slides.map((slide, index) => (
         <img
