@@ -24,7 +24,7 @@ function App() {
 
       <RestaurantCard size='lg' options={FEATURED_RESTAURANT} />
 
-      <HorizontalSlider data={MOCK_OFFERS_SLIDES} autoScrollMs={5000} />
+      <HorizontalSlider data={MOCK_OFFERS_SLIDES} autoScrollMs={6000} slideSize='lg' />
 
       <Category value='😋 Must Try' />
       <HorizontalContainer>
@@ -46,6 +46,8 @@ function App() {
           <RestaurantCard key={restaurant.restaurant.name} size='sm' options={restaurant} />
         ))}
       </HorizontalContainer>
+
+      <HorizontalSlider data={MOCK_OFFERS_SLIDES} autoScrollMs={8000} slideSize='sm' />
 
       <Category value='🍱 Asian' />
       <HorizontalContainer>

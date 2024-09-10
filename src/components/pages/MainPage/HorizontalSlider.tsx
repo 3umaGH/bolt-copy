@@ -1,6 +1,5 @@
+import clsx from 'clsx'
 import { useLayoutEffect, useRef } from 'react'
-
-const slideClassName = 'w-[90svw] max-h-[300px] h-full rounded-md snap-center'
 
 export type Slide = {
   id: number
@@ -10,10 +9,16 @@ export type Slide = {
 
 type HorizontalSlider = {
   data: Slide[]
+  slideSize: 'sm' | 'lg'
   autoScrollMs?: number
 }
 
-export const HorizontalSlider = ({ data, autoScrollMs }: HorizontalSlider) => {
+export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSlider) => {
+  const slideClassName = clsx('w-[90svw] h-full rounded-md snap-center', {
+    'max-h-[110px] lg:max-h-[200px]': slideSize === 'sm',
+    'max-h-[300px]': slideSize === 'lg',
+  })
+
   const baseImages = [data[data.length - 1], ...data, ...data, data[0]]
   const slides = [...baseImages]
   const sliderRef = useRef<HTMLDivElement>(null)
