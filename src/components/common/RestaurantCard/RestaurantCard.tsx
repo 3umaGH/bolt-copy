@@ -51,7 +51,7 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
 
             {options.delivery.price.discounted_price ? (
               <>
-                <span className='font-bold text-red-500'>{options.delivery.price.discounted_price.toFixed(2)} €</span>
+                <span className='font-bold text-red-600'>{options.delivery.price.discounted_price.toFixed(2)} €</span>
                 <span className='text-gray-400 mx-0.5'>·</span>
               </>
             ) : null}
