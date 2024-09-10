@@ -1,22 +1,39 @@
 import clsx from 'clsx'
+import React, { useState } from 'react'
 import { CiCalendar } from 'react-icons/ci'
 import { FaWalking } from 'react-icons/fa'
 import { FaAngleRight } from 'react-icons/fa6'
 import { IoMdBicycle } from 'react-icons/io'
 import { HorizontalContainer } from '../components/pages/MainPage/HorizontalContainer'
 import { DishCard } from '../components/pages/MainPage/Restaurant/DishCard'
+import { DishDetails } from '../components/pages/MainPage/Restaurant/DishDetails'
 import { DishGrid } from '../components/pages/MainPage/Restaurant/DishGrid'
 import { FoodCategory } from '../components/pages/MainPage/Restaurant/FoodCategory'
 import { Rating } from '../components/pages/MainPage/Restaurant/Rating'
-import { MOCK_RESTAURANTS } from '../mockData'
+import { MOCK_RESTAURANTS, mockDish } from '../mockData'
+import { Dish } from '../types/restaurant'
 
 const iconClassName = 'min-w-4 h-auto'
 
 export const Restaurant = () => {
+  const [selectedDish, setSelectedDish] = useState<Dish>(mockDish)
+  const [isDishModalVisible, setDishModalVisible] = useState(false)
   const restaurant = MOCK_RESTAURANTS[0]
+  const dishes = [mockDish]
+
+  const handleDishClick = (dish: Dish) => {
+    setSelectedDish(dish)
+    setDishModalVisible(true)
+  }
+
+  const handleModalClose = () => {
+    setDishModalVisible(false)
+  }
 
   return (
-    <div className='relative min-h-screen bg-gray-100'>
+    <div className={clsx('relative min-h-screen bg-gray-100')}>
+      <DishDetails dish={selectedDish} isOpen={isDishModalVisible} onClose={handleModalClose} />
+
       <img src={restaurant.restaurant.image} className='w-full' />
 
       <div className='relative z-10 flex flex-col min-h-screen gap-2 overflow-hidden rounded-xl -top-4'>
@@ -87,32 +104,19 @@ export const Restaurant = () => {
         <div className='flex flex-col gap-4 py-4 bg-white rounded-2xl'>
           <FoodCategory value='Most Popular' className='mx-4' />
           <HorizontalContainer>
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
-            <DishGrid />
+            {dishes.map(dish => (
+              <DishGrid key={dish.id} dish={dish} onClick={handleDishClick} />
+            ))}
           </HorizontalContainer>
 
           <FoodCategory value='Woks' className='mx-4 mt-8' />
           <div className='flex flex-col w-full gap-8 px-4'>
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
-            <DishCard />
-            <hr />
+            {dishes.map(dish => (
+              <React.Fragment key={dish.id}>
+                <DishCard dish={dish} onClick={handleDishClick} />
+                <hr />
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>

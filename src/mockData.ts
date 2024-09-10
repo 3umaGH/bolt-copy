@@ -1,5 +1,5 @@
 import { Slide } from './components/pages/MainPage/HorizontalSlider'
-import { RestaurantOptions } from './types/restaurant'
+import { Dish, RestaurantOptions } from './types/restaurant'
 
 export const FEATURED_RESTAURANT: RestaurantOptions = {
   restaurant: {
@@ -302,3 +302,68 @@ export const MOCK_GENERIC_SLIDES: Slide[] = [
   { id: 2, img: '/promo/generic.webp', href: '' },
   { id: 3, img: '/promo/generic.webp', href: '' },
 ]
+
+export const mockDish: Dish = {
+  id: 1,
+  name: 'Spicy Vegan Tacos',
+  image: 'https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg',
+  description: 'Delicious soft-shell tacos filled with seasoned tofu, fresh vegetables, and a spicy salsa.',
+  ingredients: ['Tofu', 'Lettuce', 'Tomato', 'Onion', 'Salsa', 'Corn Tortilla'],
+  details: {
+    vegan: true,
+    gluten_free: true,
+    spicy: true,
+  },
+  options: [
+    {
+      id: 1,
+      name: 'Spiciness Level',
+      required: true,
+      maximum_options: 1,
+      options: [
+        {
+          id: 1,
+          name: 'Mild',
+          price: 0,
+        },
+        {
+          id: 2,
+          name: 'Medium',
+          price: 0,
+        },
+        {
+          id: 3,
+          name: 'Hot',
+          price: 0,
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Extras',
+      required: false,
+      maximum_options: 3,
+      options: [
+        {
+          id: 4,
+          name: 'Guacamole',
+          price: 1.5,
+        },
+        {
+          id: 5,
+          name: 'Sour Cream',
+          price: 1,
+        },
+        {
+          id: 6,
+          name: 'Cheese',
+          price: 1.2,
+        },
+      ],
+    },
+  ],
+  price: {
+    price: 12.99,
+    discounted_price: 10.99,
+  },
+}
