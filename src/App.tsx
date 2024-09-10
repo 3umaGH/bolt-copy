@@ -2,7 +2,7 @@ import { FiMapPin } from 'react-icons/fi'
 import { Category } from './components/common/Category'
 import { RestaurantCard } from './components/common/RestaurantCard/RestaurantCard'
 import { Searchbar } from './components/pages/MainPage/Searchbar'
-import { FEATURED_RESTAURANT, MOCK_OFFERS_SLIDES, MOCK_RESTAURANTS } from './mockData'
+import { FEATURED_RESTAURANT, MOCK_GENERIC_SLIDES, MOCK_OFFERS_SLIDES, MOCK_RESTAURANTS } from './mockData'
 import { HorizontalContainer } from './components/pages/MainPage/HorizontalContainer'
 import { HorizontalSlider } from './components/pages/MainPage/HorizontalSlider'
 import { RestaurantGrid } from './components/common/RestaurantCard/RestaurantGrid'
@@ -49,7 +49,7 @@ function App() {
         ))}
       </HorizontalContainer>
 
-      <HorizontalSlider data={MOCK_OFFERS_SLIDES} autoScrollMs={8000} slideSize='sm' />
+      <HorizontalSlider data={MOCK_GENERIC_SLIDES} autoScrollMs={8000} slideSize='sm' />
 
       <Category value='👜 Stores' />
       <HorizontalContainer>

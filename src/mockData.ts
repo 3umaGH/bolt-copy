@@ -279,3 +279,10 @@ export const MOCK_OFFERS_SLIDES: Slide[] = [
   { id: 3, img: '/promo/4.webp', href: '' },
   { id: 4, img: '/promo/5.webp', href: '' },
 ]
+
+export const MOCK_GENERIC_SLIDES: Slide[] = [
+  { id: 0, img: '/promo/generic.webp', href: '' },
+  { id: 1, img: '/promo/generic.webp', href: '' },
+  { id: 2, img: '/promo/generic.webp', href: '' },
+  { id: 3, img: '/promo/generic.webp', href: '' },
+]
