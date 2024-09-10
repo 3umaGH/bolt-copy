@@ -1,5 +1,6 @@
 export type RestaurantOptions = {
   restaurant: {
+    id: number
     name: string
     image: string
     badge_text?: string

@@ -3,6 +3,7 @@ import { RestaurantOptions } from './types/restaurant'
 
 export const FEATURED_RESTAURANT: RestaurantOptions = {
   restaurant: {
+    id: 0,
     name: 'Bolt Market Soola',
     image:
       'https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg',
@@ -20,6 +21,7 @@ export const FEATURED_RESTAURANT: RestaurantOptions = {
 export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   {
     restaurant: {
+      id: 1,
       name: 'Pasta Palace',
       image: 'https://sharethepasta.org/wp-content/uploads/2021/09/Tagliatelle-2-scaled-800x400.jpg',
       badge_text: 'Popular',
@@ -38,6 +40,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 2,
       name: 'Sushi World',
       image: 'https://emirateswoman.com/wp-content/uploads/2020/04/3a.rainbow-roll.jpg',
       ratings: {
@@ -54,6 +57,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 3,
       name: 'Burger Haven',
       image: 'https://citrusthediner.com/wp-content/uploads/2023/10/iStock-1412706551-res.jpg',
       badge_text: 'Best Seller',
@@ -71,6 +75,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 4,
       name: 'Taco Town',
       image: 'https://aquaworld.com.mx/wp-content/uploads/2021/11/tacos-de-cochinita-pibil-e1637691441188.jpeg',
       ratings: {
@@ -87,6 +92,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 5,
       name: 'Pizza Express',
       image: 'https://franchise.yourpie.com/wp-content/uploads/2021/07/Large-Pizza-Collection-800x400.jpg',
       badge_text: 'New',
@@ -105,6 +111,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 6,
       name: 'Vegan Delights',
       image: 'https://www.mindfulnessassociation.net/wp-content/uploads/2019/08/So-you-want-to-be-a-vegan-800x400.jpg',
       ratings: {
@@ -121,6 +128,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 7,
       name: 'Curry House',
       image:
         'https://static.vecteezy.com/system/resources/thumbnails/026/721/935/small_2x/indian-national-food-close-up-generative-ai-photo.jpg',
@@ -139,6 +147,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 8,
       name: 'BBQ Shack',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdrKjmAijBGEsQRG7I7-b063OG3x6TL-mkmQ&s',
       ratings: {
@@ -155,6 +164,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 9,
       name: 'Seafood Sensation',
       image: 'https://hogr.app/blog/wp-content/uploads/2023/11/22803-800x400.jpg',
       badge_text: 'Top Rated',
@@ -172,6 +182,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 10,
       name: 'Deli Dreams',
       image: 'https://chilliindia.com.au/wp-content/uploads/2024/03/regional-indian-dishes.webp',
       ratings: {
@@ -188,6 +199,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 11,
       name: 'Steak Central',
       image: 'https://eatersmarket.sg/wp-content/uploads/2022/09/affordable-steak-cuts-singapore.jpg',
       badge_text: 'Premium',
@@ -205,6 +217,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 12,
       name: 'Healthy Bites',
       image: 'https://www.invigormedical.com/wp-content/uploads/Invigor-Standard-2023-01-08T191545401.png',
       ratings: {
@@ -222,6 +235,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 13,
       name: 'Italian Bistro',
       image: 'https://www.liguriaristorante.co.za/wp-content/uploads/2023/05/medium-images-2.png',
       badge_text: 'Customer Favorite',
@@ -239,6 +253,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 14,
       name: 'Ramen World',
       image: 'https://il-letterato.ru/upload/medialibrary/e8e/e8e8354be08fa37541038ce92bd0003f.jpg',
       ratings: {
@@ -256,6 +271,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   },
   {
     restaurant: {
+      id: 15,
       name: 'Fried Chicken Feast',
       image: 'https://miro.medium.com/v2/resize:fit:800/0*uuovY4pBr7cyXsgS.png',
       ratings: {
