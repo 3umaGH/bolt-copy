@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export type Slide = {
   id: number
@@ -95,12 +96,9 @@ export const HorizontalSlider = ({ data, autoScrollMs, slideSize }: HorizontalSl
       onClick={handleTouchStart}
       className='flex w-screen gap-4 px-4 mt-2 overflow-auto snap-mandatory snap-x hide-scrollbar'>
       {slides.map((slide, index) => (
-        <img
-          ref={index === 0 ? firstSlideRef : null}
-          src={slide.img}
-          key={`${slide.id}_${index}`}
-          className={slideClassName}
-        />
+        <Link to={slide.href} key={`${slide.id}_${index}`}>
+          <img ref={index === 0 ? firstSlideRef : null} src={slide.img} className={slideClassName} />
+        </Link>
       ))}
     </div>
   )

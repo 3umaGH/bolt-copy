@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Link } from 'react-router-dom'
 import { CommonProps } from '../../../types/common'
 import { RestaurantOptions } from '../../../types/restaurant'
 
@@ -10,7 +11,7 @@ type RestaurantGrid = {
 
 export const RestaurantGrid = ({ className, size, options }: RestaurantGrid) => {
   return (
-    <div className={clsx('leading-5', className)}>
+    <Link to={`restaurant/${options.restaurant.id}`} className={clsx('leading-5', className)}>
       <div
         className={clsx('relative overflow-hidden min-w-[90px] w-screen', {
           'max-w-[100px] lg:max-w-[200px]': size === 'sm',
@@ -23,6 +24,6 @@ export const RestaurantGrid = ({ className, size, options }: RestaurantGrid) => 
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

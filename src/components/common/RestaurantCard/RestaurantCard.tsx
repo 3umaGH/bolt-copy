@@ -1,10 +1,11 @@
 import clsx from 'clsx'
 import { IoMdBicycle } from 'react-icons/io'
 import { PiTimer } from 'react-icons/pi'
+import { Link } from 'react-router-dom'
 import { CommonProps } from '../../../types/common'
 import { RestaurantOptions } from '../../../types/restaurant'
-import { RatingBadge } from './RatingBadge'
 import { OfferBadge } from './OfferBadge'
+import { RatingBadge } from './RatingBadge'
 
 type RestaurantCard = {
   size: 'sm' | 'lg'
@@ -16,18 +17,18 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
   const iconClass = clsx('h-auto', { 'w-5': size === 'lg', 'w-4': size === 'sm' })
 
   return (
-    <div className={clsx('leading-5', className)}>
+    <Link to={`restaurant/${options.restaurant.id}`} className={clsx('leading-5', className)}>
       <div
         className={clsx('relative overflow-hidden min-w-[225px] lg:min-w-[425px] xl:min-w-[625px]', {
           'max-w-[600px]': size === 'sm',
           'max-w-[800px]': size === 'lg',
         })}>
-        <div className='w-full h-full absolute p-2'>
-          <div className='h-1/2 flex justify-between'>
+        <div className='absolute w-full h-full p-2'>
+          <div className='flex justify-between h-1/2'>
             {options.restaurant.badge_text ? <OfferBadge text={options.restaurant.badge_text} /> : null}
           </div>
 
-          <div className='flex justify-end h-1/2 items-end'>
+          <div className='flex items-end justify-end h-1/2'>
             <RatingBadge
               averageRating={options.restaurant.ratings.average_rating}
               totalRatings={options.restaurant.ratings.total_ratings}
@@ -35,7 +36,7 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
           </div>
         </div>
 
-        <img className='w-full rounded-md overflow-hidden' src={options.restaurant.image} />
+        <img className='w-full overflow-hidden rounded-md' src={options.restaurant.image} />
       </div>
       <div className='mt-2'>
         <p className='font-bold tracking-wide'>{options.restaurant.name}</p>
@@ -45,7 +46,7 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
             'gap-4 text-sm': size === 'lg',
             'gap-2 text-[0.75rem]': size === 'sm',
           })}>
-          <span className='flex gap-1 items-center'>
+          <span className='flex items-center gap-1'>
             <IoMdBicycle className={iconClass} />
 
             {options.delivery.price.discounted_price ? (
@@ -60,11 +61,11 @@ export const RestaurantCard = ({ className, size, options }: RestaurantCard) => 
             </span>
           </span>
 
-          <span className='flex gap-1 items-center'>
+          <span className='flex items-center gap-1'>
             <PiTimer className={iconClass} /> {options.delivery.time_range[0]}-{options.delivery.time_range[1]} min
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
