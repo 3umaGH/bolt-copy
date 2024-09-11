@@ -2,6 +2,8 @@ import clsx from 'clsx'
 import { useEffect } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import { Dish } from '../../../../types/restaurant'
+import { Checkbox } from '../../../common/ui/Checkbox'
+import { RadioButton } from '../../../common/ui/RadioButton'
 
 type DishDetails = {
   dish: Dish
@@ -55,7 +57,7 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
 
           <hr className='mt-2' />
 
-          <p className='mt-2 text-gray-500'>{dish.ingredients.join(', ')}</p>
+          <p className='mt-2 text-gray-500'>{dish.ingredients.slice(1, 3).join(', ').toString()}</p>
         </div>
 
         {dish.options.map(category => {
@@ -79,14 +81,11 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
                   <div key={option.id}>
                     <div className='flex justify-between py-4'>
                       <span className='flex items-center gap-2'>
-                        {/* Todo checkbox/radiobox */}
                         {isMultiselect ? (
-                          <div className='w-5 h-5 border-2 rounded-md' />
+                          <Checkbox label={option.name} id={option.name} />
                         ) : (
-                          <div className='w-5 h-5 border-2 rounded-full' />
+                          <RadioButton name={category.name} label={option.name} id={option.name} />
                         )}
-
-                        {option.name}
                       </span>
                       <span className='text-gray-500 text-[1rem] tracking-wide'>
                         {option.price >= 0 ? '+' : '-'}
