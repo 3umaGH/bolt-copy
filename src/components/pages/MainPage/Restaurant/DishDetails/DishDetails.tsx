@@ -99,7 +99,7 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
             </div>
           )
         })}
-        <Footer price={isDiscounted ? dish.price.discounted_price : dish.price.price} />
+        <Footer onSubmit={() => {}} price={isDiscounted ? dish.price.discounted_price : dish.price.price} />
       </div>
     </div>
   )
