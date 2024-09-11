@@ -1,29 +1,33 @@
-import { useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 
-type Stepper = {
+type StepperProps = {
   min: number
   max: number
-  onChange?: (newValue: number, prevValue: number) => void
+  onChange?: (newValue: number) => void
 }
 
-export const Stepper = ({ min, max, onChange }: Stepper) => {
+export const Stepper = memo(({ min, max, onChange }: StepperProps) => {
   const [value, setValue] = useState<number>(min)
 
+  useEffect(() => {
+    if (onChange) onChange(value)
+  }, [value, onChange])
+
   const handleIncrease = () => {
-    setValue(p => {
-      const newValue = p + 1 >= max ? max : p + 1
-      if (onChange) onChange(newValue, p)
-      return newValue
-    })
+    setValue(p => (p + 1 >= max ? max : p + 1))
+
+    if (onChange) {
+      onChange(value)
+    }
   }
 
   const handleDecrease = () => {
-    setValue(p => {
-      const newValue = p - 1 <= min ? min : p - 1
-      if (onChange) onChange(newValue, p)
-      return newValue
-    })
+    setValue(p => (p - 1 <= min ? min : p - 1))
+
+    if (onChange) {
+      onChange(value)
+    }
   }
 
   return (
@@ -33,4 +37,4 @@ export const Stepper = ({ min, max, onChange }: Stepper) => {
       <FaPlus className={`cursor-pointer ${value === max ? 'text-gray-400' : ''}`} onClick={handleIncrease} />
     </div>
   )
-}
+})
