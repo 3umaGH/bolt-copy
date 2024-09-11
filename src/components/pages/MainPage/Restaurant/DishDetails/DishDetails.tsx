@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { useEffect } from 'react'
-import { Dish } from '../../../../types/restaurant'
-import { Checkbox } from '../../../common/ui/Checkbox'
-import { RadioButton } from '../../../common/ui/RadioButton'
-import { Stepper } from '../../../common/ui/Stepper'
+import { Dish } from '../../../../../types/restaurant'
+import { Checkbox } from '../../../../common/ui/Checkbox'
+import { RadioButton } from '../../../../common/ui/RadioButton'
+import { Footer } from './Footer'
 
 type DishDetails = {
   dish: Dish
@@ -99,19 +99,7 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
             </div>
           )
         })}
-      </div>
-
-      <div className='fixed bottom-0 bg-white z-[13] w-full'>
-        <hr />
-        <div className='flex items-center justify-between gap-4 p-2'>
-          <Stepper min={1} max={10} />
-          <button className='flex-1 px-4 py-1 font-bold text-white bg-green-500 rounded-full max-w-[500px]'>
-            <div className='flex flex-col items-center justify-center'>
-              <span className='text-sm'>Add</span>
-              <span className='text-xs'>{isDiscounted ? dish.price.discounted_price : dish.price.price} €</span>
-            </div>
-          </button>
-        </div>
+        <Footer price={isDiscounted ? dish.price.discounted_price : dish.price.price} />
       </div>
     </div>
   )
