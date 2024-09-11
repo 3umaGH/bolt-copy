@@ -148,7 +148,7 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
     restaurant: {
       id: 8,
       name: 'BBQ Shack',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdrKjmAijBGEsQRG7I7-b063OG3x6TL-mkmQ&s',
+      image: 'https://static.vecteezy.com/system/resources/thumbnails/026/721/935/small_2x/indian-national-food-close-up-generative-ai-photo.jpg',
       ratings: {
         average_rating: 4.4,
         total_ratings: 980,
