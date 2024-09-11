@@ -10,7 +10,7 @@ import { DishDetails } from '../components/pages/MainPage/Restaurant/DishDetails
 import { DishGrid } from '../components/pages/MainPage/Restaurant/DishGrid'
 import { FoodCategory } from '../components/pages/MainPage/Restaurant/FoodCategory'
 import { Rating } from '../components/pages/MainPage/Restaurant/Rating'
-import { MOCK_RESTAURANTS, mockDish } from '../mockData'
+import { MOCK_RESTAURANTS, mockDishes } from '../mockData'
 import { Dish } from '../types/restaurant'
 import { IoMdArrowBack } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
@@ -18,12 +18,12 @@ import { useNavigate } from 'react-router-dom'
 const iconClassName = 'min-w-4 h-auto'
 
 export const Restaurant = () => {
-  const [selectedDish, setSelectedDish] = useState<Dish>(mockDish)
+  const [selectedDish, setSelectedDish] = useState<Dish>(mockDishes[0])
   const [isDishModalVisible, setDishModalVisible] = useState(false)
   const navigate = useNavigate()
 
   const restaurant = MOCK_RESTAURANTS[0]
-  const dishes = [mockDish]
+  const dishes = mockDishes
 
   const handleDishClick = (dish: Dish) => {
     setSelectedDish(dish)
