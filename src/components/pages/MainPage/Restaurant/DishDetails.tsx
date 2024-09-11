@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { useEffect } from 'react'
-import { FaMinus, FaPlus } from 'react-icons/fa6'
 import { Dish } from '../../../../types/restaurant'
 import { Checkbox } from '../../../common/ui/Checkbox'
 import { RadioButton } from '../../../common/ui/RadioButton'
+import { Stepper } from '../../../common/ui/Stepper'
 
 type DishDetails = {
   dish: Dish
@@ -104,11 +104,7 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
       <div className='fixed bottom-0 bg-white z-[13] w-full'>
         <hr />
         <div className='flex items-center justify-between gap-4 p-2'>
-          <div className=' max-w-[500px] flex items-center flex-grow-[0.25] justify-between gap-4 py-2 px-4 font-bold border-[1px] border-gray-300 rounded-full'>
-            <FaMinus className='text-gray-400' />
-            <span>1</span>
-            <FaPlus />
-          </div>
+          <Stepper min={1} max={10} />
           <button className='flex-1 px-4 py-1 font-bold text-white bg-green-500 rounded-full max-w-[500px]'>
             <div className='flex flex-col items-center justify-center'>
               <span className='text-sm'>Add</span>
