@@ -40,7 +40,7 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
           }
         )}>
         <div
-          className='absolute p-2 bg-white rounded-full top-2 right-2 cursor-pointer active:scale-[0.98]'
+          className='fixed p-2 bg-white rounded-full top-24 right-2 cursor-pointer active:scale-[0.98]'
           onClick={onClose}>
           <IoClose className='h-auto min-w-5' />
         </div>
