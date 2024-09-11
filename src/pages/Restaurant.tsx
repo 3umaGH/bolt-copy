@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import { CiCalendar } from 'react-icons/ci'
 import { FaWalking } from 'react-icons/fa'
 import { FaAngleRight } from 'react-icons/fa6'
-import { IoMdBicycle } from 'react-icons/io'
+import { IoMdArrowBack, IoMdBicycle } from 'react-icons/io'
+import { useNavigate, useParams } from 'react-router-dom'
 import { HorizontalContainer } from '../components/pages/MainPage/HorizontalContainer'
 import { DishCard } from '../components/pages/MainPage/Restaurant/DishCard'
 import { DishDetails } from '../components/pages/MainPage/Restaurant/DishDetails/DishDetails'
@@ -12,8 +13,6 @@ import { FoodCategory } from '../components/pages/MainPage/Restaurant/FoodCatego
 import { Rating } from '../components/pages/MainPage/Restaurant/Rating'
 import { MOCK_RESTAURANTS, mockDishes } from '../mockData'
 import { Dish } from '../types/restaurant'
-import { IoMdArrowBack } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
 
 const iconClassName = 'min-w-4 h-auto'
 
@@ -21,9 +20,14 @@ export const Restaurant = () => {
   const [selectedDish, setSelectedDish] = useState<Dish>(mockDishes[0])
   const [isDishModalVisible, setDishModalVisible] = useState(false)
   const navigate = useNavigate()
+  const { id } = useParams()
 
-  const restaurant = MOCK_RESTAURANTS[0]
+  const restaurant = MOCK_RESTAURANTS.find(restaurant => restaurant.restaurant.id === (Number(id ?? 0) as number))
   const dishes = mockDishes
+
+  if (!restaurant) {
+    return <p>Restaurant not found.</p>
+  }
 
   const handleDishClick = (dish: Dish) => {
     setSelectedDish(dish)

@@ -1,24 +1,23 @@
 import { Slide } from './components/pages/MainPage/HorizontalSlider'
 import { Dish, RestaurantOptions } from './types/restaurant'
 
-export const FEATURED_RESTAURANT: RestaurantOptions = {
-  restaurant: {
-    id: 0,
-    name: 'Bolt Market Soola',
-    image:
-      'https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg',
-    ratings: {
-      average_rating: 4.8,
-      total_ratings: 501,
+export const MOCK_RESTAURANTS: RestaurantOptions[] = [
+  {
+    restaurant: {
+      id: 0,
+      name: 'Bolt Market Soola',
+      image:
+        'https://static.vecteezy.com/system/resources/thumbnails/005/577/796/small_2x/salad-quail-egg-tomato-mix-leaves-vegetable-healthy-meal-vegan-or-vegetarian-food-photo.jpg',
+      ratings: {
+        average_rating: 4.8,
+        total_ratings: 501,
+      },
+    },
+    delivery: {
+      time_range: [20, 40],
+      price: { price: 2.7 },
     },
   },
-  delivery: {
-    time_range: [20, 40],
-    price: { price: 2.7 },
-  },
-}
-
-export const MOCK_RESTAURANTS: RestaurantOptions[] = [
   {
     restaurant: {
       id: 1,
@@ -287,6 +286,8 @@ export const MOCK_RESTAURANTS: RestaurantOptions[] = [
     },
   },
 ]
+
+export const FEATURED_RESTAURANT: RestaurantOptions = MOCK_RESTAURANTS[0]
 
 export const MOCK_OFFERS_SLIDES: Slide[] = [
   { id: 0, img: '/promo/1.webp', href: '' },
