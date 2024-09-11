@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Dish } from '../../../../../types/restaurant'
 import { Footer } from './Footer'
 import { OptionCategorySection } from './OptionCategorySection'
+import { IoClose } from 'react-icons/io5'
 
 type DishDetails = {
   dish: Dish
@@ -38,6 +39,12 @@ export const DishDetails = ({ dish, isOpen, onClose }: DishDetails) => {
             'translate-y-[100%]': !isOpen,
           }
         )}>
+        <div
+          className='absolute p-2 bg-white rounded-full top-2 right-2 cursor-pointer active:scale-[0.98]'
+          onClick={onClose}>
+          <IoClose className='h-auto min-w-5' />
+        </div>
+
         <div className='w-full'>
           <img src={dish.image} className='object-contain w-full max-h-auto' />
         </div>
