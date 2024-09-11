@@ -1,5 +1,5 @@
-import { CommonProps } from '@mui/material/OverridableComponent'
 import clsx from 'clsx'
+import { CommonProps } from '../../types/common'
 
 type Category = {
   value: string

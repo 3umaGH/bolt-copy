@@ -1,6 +1,6 @@
-import { CommonProps } from '@mui/material/OverridableComponent'
 import clsx from 'clsx'
 import { FaStar } from 'react-icons/fa'
+import { CommonProps } from '../../../../types/common'
 
 const GOLD_RATING_THRESHOLD = 4.7
 const RATING_CUTOFF_THRESHOLD = 500
