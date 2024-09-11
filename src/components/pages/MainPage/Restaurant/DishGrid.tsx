@@ -11,7 +11,7 @@ export const DishGrid = ({ dish, onClick }: DishGrid) => {
 
   return (
     <div className='cursor-pointer' onClick={() => onClick(dish)}>
-      <div className='min-w-[130px] w-[130px] min-h-auto overflow-hidden'>
+      <div className='min-w-[100px] w-[100px] min-h-auto overflow-hidden'>
         <div className='relative'>
           <div className='absolute p-2 bg-white rounded-full bottom-2 right-2'>
             <FaPlus className='h-auto min-w-5' />
@@ -31,7 +31,7 @@ export const DishGrid = ({ dish, onClick }: DishGrid) => {
               <span>{dish.price.price.toFixed(2)} € </span>
             )}
           </span>
-          <span className='overflow-hidden text-sm text-gray-500 whitespace-nowrap text-ellipsis'>{dish.name}</span>
+          <span className='overflow-hidden text-xs text-gray-500 whitespace-nowrap text-ellipsis'>{dish.name}</span>
         </div>
       </div>
     </div>
