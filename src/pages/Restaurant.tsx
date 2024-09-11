@@ -12,12 +12,16 @@ import { FoodCategory } from '../components/pages/MainPage/Restaurant/FoodCatego
 import { Rating } from '../components/pages/MainPage/Restaurant/Rating'
 import { MOCK_RESTAURANTS, mockDish } from '../mockData'
 import { Dish } from '../types/restaurant'
+import { IoMdArrowBack } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
 
 const iconClassName = 'min-w-4 h-auto'
 
 export const Restaurant = () => {
   const [selectedDish, setSelectedDish] = useState<Dish>(mockDish)
   const [isDishModalVisible, setDishModalVisible] = useState(false)
+  const navigate = useNavigate()
+
   const restaurant = MOCK_RESTAURANTS[0]
   const dishes = [mockDish]
 
@@ -30,11 +34,21 @@ export const Restaurant = () => {
     setDishModalVisible(false)
   }
 
+  const handleNavigateBack = () => {
+    navigate(-1)
+  }
+
   return (
     <div className={clsx('relative min-h-screen bg-gray-100')}>
       <DishDetails dish={selectedDish} isOpen={isDishModalVisible} onClose={handleModalClose} />
 
       <img src={restaurant.restaurant.image} className='w-full' />
+
+      <div
+        className='absolute p-2 bg-white rounded-full top-2 left-2 cursor-pointer active:scale-[0.98]'
+        onClick={handleNavigateBack}>
+        <IoMdArrowBack className='h-auto min-w-5' />
+      </div>
 
       <div className='relative z-10 flex flex-col min-h-screen gap-2 overflow-hidden rounded-xl -top-4'>
         <div className='flex flex-col gap-2 px-4 py-4 bg-white rounded-2xl'>
